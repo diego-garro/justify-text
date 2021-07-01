@@ -12,14 +12,14 @@ List<String> justify(
   // wrap the text
   var wrappedText = wrap(text, width: width);
 
-  // If justifyLastLine == false we omite justify the las line
+  // If justifyLastLine == false we omite justify the last line
   if (justifyLastLine == false) {
     ourRange = wrappedText.length - 1;
   } else {
     ourRange = wrappedText.length;
   }
 
-  // create a iterator over the wrappedText lines to justify them
+  // create an iterator over the wrappedText lines to justify them
   final range = Iterable<int>.generate(ourRange).toList();
 
   for (var i in range) {
@@ -27,7 +27,7 @@ List<String> justify(
     var line = wrappedText[i].split(' ');
 
     // this counter help us to start to count the second from the last word
-    // in the line, the word before the las space. We use it to walk backward
+    // in the line, the word before the last space. We use it to walk backward
     // adding a space to every word until the line length is exactly `width`
     // characters long
     var counter = line.length - 2;
@@ -43,7 +43,7 @@ List<String> justify(
       // if it's shorter than `width`...
       try {
         // ...add our separator character to the end of the word before the
-        // las space...
+        // last space...
         line[counter] += sep;
         // ...then, decrease counter by one to walk back to the next previous
         // word...
